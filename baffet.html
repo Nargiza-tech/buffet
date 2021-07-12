@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style/buffet.css">
+        <title>baffet</title>
+    </head>
+    <body>
+        <div class="col-12 pt-3 ps-3 text-start">
+            <a href="menu.html"><button class="btn btn-outline-dark">&lt;Назад</button></a>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <div id="root" class="row">
+                <div class="col-12 col-lg-6 col-xl-4">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-dark w-25 p-3 mt-3"
+                data-bs-toggle="modal" data-bs-target="#add-modal">Добавить</button>
+        </div>
+
+
+        <!-- add modal -->
+        <div class="modal fade" id="add-modal" tabindex="-1"
+            aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Добавить продукт</h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" class="add-form">
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label for="name">Название</label>
+                                    <input type="text" name="name" id="name"
+                                        class="form-control" required>
+                                </div>
+                                <div class="mb-3 col">
+                                    <label for="price">Цена</label>
+                                    <input type="text" name="price" id="price"
+                                        class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label for="img">фото</label>
+                                    <input type="text" name="img"
+                                        class="form-control" id="img" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Закрыть</button>
+                        <button type="submit" id="submit-product" class="btn
+                            btn-primary" data-id="{{id}}" data-name="{{name}}"
+                            data-price="{{price}}">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- edit modal -->
+        <div class="modal fade" id="edit-modal" tabindex="-1"
+            aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Редактирование продукта</h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" id="edit-form">
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label for="name">название</label>
+                                    <input type="text" name="name"
+                                        id="edit-name" class="form-control"
+                                        required>
+                                </div>
+                                <div class="mb-3 col">
+                                    <label for="price">Цена</label>
+                                    <input type="text" name="price"
+                                        id="edit-price" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label for="img">фото</label>
+                                    <input type="text" name="img"
+                                        class="form-control" id="edit-img"
+                                        required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-primary"
+                            data-name="{{name}}" data-price="{{price}}"
+                            id="edit-button" data-bs-dismiss="modal">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete modal -->
+        <div class="modal fade" id="delete-modal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Вы
+                            действительно хотите удалить?</h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Отменить</button>
+                        <button type="button" data-bs-dismiss="modal"
+                            data-id="{{id}}" class="btn btn-danger delete">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Шаблон для отоброжение -->
+        <script id="product-card"
+            type="text/x-handlebars-template">
+   {{#each this}}
+  
+       <div class="justify-content-center card1 border border-dark mt-4 m-2">
+           <button class="float-end border m-2 delete-btn" data-bs-toggle="modal" data-bs-target="#delete-modal" data-id="{{id}}" >x</button>
+           <img src="{{img}}" alt="" class="img1">
+           <i class="fa fa-edit editBtn" data-bs-toggle="modal" data-id="{{id}}"  data-bs-target="#edit-modal"></i>
+           <p>Цена: <span>{{price}}</span></p>
+           <p>Название: <span>{{name}}</span></p>
+       </div> 
+   {{/each}}
+</script>
+        <!-- JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+            integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+
+        <script src="baffet.js"></script>
+    </body>
+</html>

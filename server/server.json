@@ -1,0 +1,98 @@
+{
+  "admin": [
+    {
+      "lastname": "Сабиров",
+      "name": "Куштарбек",
+      "course": "Python",
+      "login": "123456",
+      "pin": "123456",
+      "id": 1
+    },
+    {
+      "lastname": "Сабиров",
+      "name": "Куштарбек",
+      "course": "Python",
+      "login": "12345",
+      "pin": "12345",
+      "id": 2
+    },
+    {
+      "lastname": "qweqwe1",
+      "name": "qweqwe1",
+      "course": "qweqwe1",
+      "login": "454541",
+      "pin": "454541",
+      "id": 3
+    }
+  ],
+  "student": [
+    {
+      "lastname": "Сабиров",
+      "name": "Куштарбек",
+      "course": "Javascript",
+      "login": "123",
+      "pin": "123",
+      "id": 1
+    },
+    {
+      "lastname": "Adam",
+      "name": "Adamov",
+      "course": "Java",
+      "login": "123",
+      "pin": "321",
+      "id": 2
+    },
+    {
+      "lastname": "Smith",
+      "name": "Agent",
+      "course": "UX / UI",
+      "login": "456",
+      "pin": "654",
+      "id": 3
+    }
+  ],
+  "course": [
+    {
+      "lastname": "Сабиров",
+      "name": "Куштарбек",
+      "start": "2021-09-01",
+      "end": "2021-05-01",
+      "course": "Javascript",
+      "price": "60000",
+      "room": "1077",
+      "time": "19:30",
+      "id": 1
+    },
+    {
+      "lastname": "Сабиров",
+      "name": "Куштарбек",
+      "start": "2021-09-01",
+      "end": "2021-05-01",
+      "course": "Python",
+      "price": "60000",
+      "room": "1077",
+      "time": "19:30",
+      "id": 2
+    }
+  ],
+  "baffet": [
+    {
+      "name": "Самсы",
+      "price": "35",
+      "img": "https://xcook.info/wp-content/uploads/sites/default/files/styles/large/public/samsa-s-baraninoy.jpg",
+      "id": 3
+    },
+    {
+      "name": "Булочка с павидлом",
+      "price": "30",
+      "img": "https://formula-salata.ru/wp-content/uploads/oformlenie-bulochek-s-povidlom_0.jpg",
+      "id": 4
+    },
+    {
+      "name": "Шоколадное прирожное",
+      "price": "45",
+      "img": "https://chocolattebsk.ru/wp-content/uploads/2020/04/snikers.jpg",
+      "id": 5
+    }
+  ]
+}
